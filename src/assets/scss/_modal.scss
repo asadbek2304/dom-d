@@ -1,0 +1,222 @@
+.modal {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba($color: #000000, $alpha: 0.5);
+  backdrop-filter: blur(10px);
+  z-index: 50;
+  transform: scale(1);
+  transition: all 0.2s;
+  &__content {
+    position: relative;
+    width: 960px;
+    height: 510px;
+    background: #ffffff;
+    box-shadow: 0px 0px 74px rgba(39, 17, 10, 0.08);
+    z-index: 1000000;
+    padding: 2rem;
+
+    .styled-checkbox {
+      position: absolute;
+      opacity: 0;
+
+      & + label {
+        position: relative;
+        cursor: pointer;
+        padding: 0;
+      }
+
+      & + label:before {
+        content: "";
+        margin-right: 10px;
+        display: inline-block;
+        vertical-align: text-top;
+        width: 30px;
+        height: 30px;
+        background: white;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.12);
+      }
+
+      &:hover + label:before {
+        background: #dda046;
+      }
+
+      &:focus + label:before {
+        box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.12);
+      }
+
+      &:checked + label:before {
+        background: #dda046;
+      }
+
+      &:disabled + label {
+        color: #b8b8b8;
+        cursor: auto;
+      }
+
+      &:disabled + label:before {
+        box-shadow: none;
+        background: #ddd;
+      }
+
+      &:checked + label:after {
+        content: "";
+        position: absolute;
+        left: 7px;
+        top: 9px;
+        background: white;
+        width: 8px;
+        height: 8px;
+        box-shadow: 2px 0 0 white, 4px 0 0 white, 4px -2px 0 white,
+          4px -4px 0 white, 4px -6px 0 white, 4px -8px 0 white;
+        transform: rotate(45deg);
+      }
+    }
+    .checkboxes {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .back {
+      margin-top: 10px;
+      padding: 20px;
+      display: flex;
+      justify-content: space-around;
+      background: rgba(196, 196, 196, 0.14);
+    }
+
+    .input-group {
+      margin-top: 10px;
+      padding: 10px;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      input {
+        width: 430px;
+        outline: none;
+        border: none;
+        font-size: 2rem;
+        background: #f4f4f4;
+      }
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+      .card1 {
+        position: relative;
+        width: 159.55px;
+        height: 160.69px;
+        transition: all 0.2s;
+        &::before {
+          content: url("../img/Union.png");
+          background-size: cover;
+          position: absolute;
+          box-shadow: -1px 3px 6px rgba(0, 0, 0, 0.16);
+          top: -15px;
+          left: 40%;
+          width: 30px;
+          height: 30px;
+          border-radius: 50%;
+          background: white;
+        }
+        img {
+          position: absolute;
+          width: 100%;
+          bottom: 26px;
+        }
+
+        h6 {
+          position: absolute;
+          bottom: 2px;
+          font-weight: 500;
+          font-size: 16px;
+          line-height: 19px;
+
+          color: #000000;
+        }
+
+        &:hover,
+        &:active {
+          background: #dda046;
+          &::before {
+            content: "";
+            background: #dda046;
+          }
+        }
+      }
+    }
+    .trash {
+      cursor: pointer;
+      width: 20rem;
+      position: absolute;
+      top: -11rem;
+      right: -11rem;
+    }
+  }
+}
+
+.close {
+  transform: scale(0);
+}
+
+@media (max-width: 768px) {
+  .modal {
+    &__content {
+      width: 680px;
+      height: 800px;
+
+      .cards {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+      }
+    }
+  }
+}
+
+@media (max-width: 360px) {
+  .modal {
+    &__content{
+      width: 340px;
+      height: 590px;
+      padding: 1rem;
+
+      .title-black{
+        font-size: 20px;
+        line-height: 20px;
+      }
+
+      .input-group{
+        flex-direction: column;
+        align-items: center;
+        input{
+          width: 320px;
+        }
+      }
+
+      label{
+        font-size: 10px;
+      }
+
+      .back{
+        padding: 10px;
+      }
+      .cards{
+        grid-template-columns: repeat(5, 1fr);
+        overflow-x: auto;
+      }
+
+      .trash{
+        width: 10rem;
+        top: -5.5rem;
+        right: -4.5rem;
+      }
+    }
+  }
+}

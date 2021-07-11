@@ -1,24 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import './assets/scss/main.scss';
 
+import Home from './pages/Home'
+import Contact from './pages/Contact'
+import Navbar from './components/Navbar';
+import Sidebar from './components/Sidebar';
+import Modal from './components/Modal';
+import Footer from './components/Footer';
+import Sponsors from './components/Sponsors';
+import { useState } from 'react';
 function App() {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(true);
+   const openModal = (bool) => {
+     setIsModalOpen(bool);
+   };
+   const closeModal = (bool) => {
+     setIsModalOpen(bool);
+   };
+  const openSidebar = (bool) => {
+    setIsSidebarOpen(bool)
+  }
+  const closeSidebar = (bool) => {
+    setIsSidebarOpen(bool)
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+<>
+<Navbar action={openSidebar} />
+<Sidebar state={isSidebarOpen} action={closeSidebar} />
+<Home action={openModal} />
+<Modal state={isModalOpen} action={closeModal}/>
+<Sponsors />
+<Contact />
+<Footer />
+</>
   );
 }
 

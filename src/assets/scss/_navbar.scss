@@ -1,0 +1,158 @@
+.navbar {
+  height: 8rem;
+  display: flex;
+  align-items: center;
+  background: #1d1a14;
+  position: relative;
+  justify-content: space-between;
+
+  &__hamburger {
+    cursor: pointer;
+    margin-left: 10px;
+  }
+
+  &__content {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__logo {
+    height: 1.8rem;
+    align-items: center;
+    img {
+      height: 100%;
+    }
+
+    .title {
+      font-family: Roboto;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 16px;
+      letter-spacing: 0em;
+      text-align: left;
+      color: white;
+
+      &__light {
+        font-family: Roboto;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 21px;
+        letter-spacing: 0em;
+        text-align: left;
+      }
+    }
+  }
+
+  &__links {
+    &--title {
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 16px;
+      text-align: center;
+      color: #dda046;
+
+      text-shadow: 0px 0px 3px rgba(211, 190, 136, 0.86);
+    }
+
+    &--phone{
+      display: none;
+    }
+
+    &--link {
+      display: flex;
+      cursor: pointer;
+      .link__btn {
+        transition: all 0.5s;
+        &:hover {
+          transform: translateY(-2px);
+        }
+      }
+    }
+  }
+
+  &__contact {
+    &--title {
+      display: flex;
+      align-items: center;
+      font-family: Roboto;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 21px;
+      letter-spacing: 0em;
+      text-align: left;
+      color: #ffffff;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    height: 13rem;
+    &__logo {
+      flex-direction: column;
+      justify-content: center;
+      .title {
+        font-size: 12px;
+        line-height: 14px;
+      }
+    }
+
+    &__content{
+      gap: 10px;
+    }
+    &__contact--title{
+      font-size: 16px;
+    }
+  }
+}
+
+
+@media (max-width: 360px){
+  .navbar{
+    &__logo{
+      img{
+        width: 8rem;
+      }
+    }
+
+    &__links{
+      &--title{
+        display: none;
+      }
+
+      &--phone{
+         display: flex;
+      align-items: center;
+        font-size: 8px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 21px;
+      letter-spacing: 0em;
+      text-align: left;
+      color: #ffffff;
+      img{
+        width: 2rem;
+      }
+      }
+
+      &--link{
+        justify-content:start;
+      }
+      .link__btn{
+        width: 50px;
+        a{
+          display: none;
+        }
+      }
+    }
+    &__contact{
+      display: none;
+    }
+  }
+}
