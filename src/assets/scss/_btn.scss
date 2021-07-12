@@ -94,6 +94,35 @@
  
 }
 
+.top{
+    position: fixed;
+  width: 3rem;
+  height: 3rem;
+  background: transparent;
+  bottom: 5rem;
+  right: 3rem;
+  z-index: 100;
+  outline: none;
+  border: none;
+  transition: all .4s;
+  cursor: pointer;
+  
+  
+  img{
+    border-radius: 50%;
+    box-shadow: 3px 3px 50px rgba(240, 192, 92, 0.54);
+    width: 4rem;
+    
+    height: 4rem;
+    background: rgba(0, 0, 0, 0.645);
+    &:hover,
+    &:active {
+      background: rgba(0, 0, 0, 0.974);
+    }
+  }
+  
+}
+
 @media (max-width: 768px){
   .link__btn{
     width: 100px;
